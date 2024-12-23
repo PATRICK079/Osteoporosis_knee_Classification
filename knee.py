@@ -31,7 +31,7 @@ st.sidebar.markdown("""
 Use the following links to download sample X-ray images for testing the model:
 - [Normal Knee Image 1](https://storage.googleapis.com/kagglesdsdata/datasets/1593420/2656457/normal/normal/11nn.png)
 - [Normal Knee Image 2](https://storage.googleapis.com/kagglesdsdata/datasets/1593420/2656457/normal/normal/125.jpg)
-- [Osteoporosis Knee Image](https://storage.googleapis.com/kagglesdsdata/datasets/1593420/2656457/osteoporosis/osteoporosis/1.JPEG)
+- [Osteoporosis Knee Image](106 (1).jpeg)
 """)
 
 st.sidebar.title("Dataset Citation")
