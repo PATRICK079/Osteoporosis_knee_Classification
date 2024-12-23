@@ -56,7 +56,7 @@ This app predicts if a patient has an **osteoporosis knee** or a **healthy knee*
 st.sidebar.title("Sample X-Ray Images")
 st.sidebar.markdown("""
 Use the following links to download sample X-ray images for testing the model:
-- [Normal Knee Image 1](https://storage.googleapis.com/kagglesdsdata/datasets/1593420/2656457/normal/normal/11nn.png)
+- [Healthy Knee Image 1](https://github.com/PATRICK079/Knee_Classification/blob/main/110.jpg)
 - [Normal Knee Image 2](https://storage.googleapis.com/kagglesdsdata/datasets/1593420/2656457/normal/normal/125.jpg)
 - [Osteoporosis Knee Image](https://github.com/PATRICK079/Knee_Classification/blob/main/106%20(1).jpeg)
 """)
