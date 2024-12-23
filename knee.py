@@ -7,9 +7,9 @@ import numpy as np
 import pandas as pd
 
 # Load the pre-trained models
-tabular_model = joblib.load('/Users/sot/Downloads/Logistic_knee_model.pk1')
+tabular_model = joblib.load('Logistic_knee_model.pk1')
 image_model = load_model('/Users/sot/Downloads/cnn_model.h5')
-tabular_scaler = joblib.load('/Users/sot/Downloads/Knee_scaler.pk1')
+tabular_scaler = joblib.load('Knee_scaler.pk1')
 
 # Sidebar for navigation
 st.sidebar.title("Navigation")
