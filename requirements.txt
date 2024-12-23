@@ -4,3 +4,5 @@ tensorflow==2.18.0
 streamlit
 pandas==2.2.3
 numpy==2.0.2
+boto3
+
