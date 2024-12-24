@@ -221,7 +221,8 @@ if task == "Image Classification":
                 osteoporosis_confidence = 1 - healthy_confidence  # Probability for Osteoporosis Knee
 
                 # Calculate confidence for Healthy Knee as (1 - osteoporosis_confidence)
-                healthy_knee_confidence = osteoporosis_confidence * 100  # To convert to percentage
+                healthy_knee_confidence = (1 - healthy_confidence) * 100  # To convert to percentage
+                osteoporosis_knee_confidence = osteoporosis_confidence * 100  # To convert to percentage
 
                 # Determine the predicted class based on the confidence value
                 if healthy_confidence < 0.5:  # Threshold of 0.5 for Healthy Knee
@@ -229,7 +230,7 @@ if task == "Image Classification":
                     confidence = healthy_knee_confidence
                 else:
                     prediction_class = "Osteoporosis Knee Likely"
-                    confidence = osteoporosis_confidence * 100  # To convert to percentage
+                    confidence = osteoporosis_knee_confidence
 
                 # Display the predicted class and confidence
                 st.write(f"Prediction: **{prediction_class}** (Confidence: {confidence:.2f}%)")
@@ -247,7 +248,7 @@ if task == "Image Classification":
 
                 # Pie chart for prediction probabilities
                 classes = ["Healthy Knee Likely", "Osteoporosis Knee Likely"]
-                prediction_probabilities = [healthy_knee_confidence, osteoporosis_confidence * 100]  # Correct percentages for both classes
+                prediction_probabilities = [healthy_knee_confidence, osteoporosis_knee_confidence]  # Correct percentages for both classes
 
                 # Plot pie chart
                 fig, ax = plt.subplots()
@@ -257,5 +258,6 @@ if task == "Image Classification":
 
             except Exception as e:
                 st.error(f"Image prediction failed: {e}")
+
 
 
