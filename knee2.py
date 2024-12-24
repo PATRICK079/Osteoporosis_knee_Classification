@@ -193,7 +193,6 @@ elif task == "Patient Data Classification":
             st.error(f"Error: {e}")
 
 
-
 if task == "Image Classification":
     st.title("Knee Image Classification")
 
@@ -221,16 +220,19 @@ if task == "Image Classification":
                 healthy_confidence = float(prediction[0])  # Convert to float
                 osteoporosis_confidence = 1 - healthy_confidence  # Probability for Osteoporosis Knee
 
+                # Calculate confidence for Healthy Knee as (1 - osteoporosis_confidence)
+                healthy_knee_confidence = osteoporosis_confidence * 100  # To convert to percentage
+
                 # Determine the predicted class based on the confidence value
                 if healthy_confidence < 0.5:  # Threshold of 0.5 for Healthy Knee
                     prediction_class = "Healthy Knee Likely"
-                    confidence = healthy_confidence
+                    confidence = healthy_knee_confidence
                 else:
                     prediction_class = "Osteoporosis Knee Likely"
-                    confidence = osteoporosis_confidence
+                    confidence = osteoporosis_confidence * 100  # To convert to percentage
 
                 # Display the predicted class and confidence
-                st.write(f"Prediction: **{prediction_class}** (Confidence: {confidence:.2%})")
+                st.write(f"Prediction: **{prediction_class}** (Confidence: {confidence:.2f}%)")
 
                 # Optional: Sanity check for non-knee images after prediction
                 if healthy_confidence > 0.993:  # Example threshold for uncertainty
@@ -239,7 +241,7 @@ if task == "Image Classification":
                 # Visualization of the prediction
                 result_color = "green" if prediction_class == "Healthy Knee Likely" else "red"
                 st.markdown(
-                    f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class: {prediction_class} (Confidence: {confidence:.2%})</span>",
+                    f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class: {prediction_class} (Confidence: {confidence:.2f}%)</span>",
                     unsafe_allow_html=True
                 )
 
