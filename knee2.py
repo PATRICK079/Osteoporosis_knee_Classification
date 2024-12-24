@@ -245,7 +245,7 @@ if task == "Image Classification":
     st.markdown("## Osteoporosis Knee Image Classification")
 
     # Upload an image
-    uploaded_file = st.file_uploader("Upload an Image of a Knee", type=["jpg", "png"])
+    uploaded_file = st.file_uploader("Upload an Image of a Knee X-RAY", type=["jpg", "png"])
 
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
