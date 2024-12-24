@@ -195,8 +195,7 @@ elif task == "Patient Data Classification":
 
 
 
-
-# Image Classification Pageif task == "Image Classification":
+if task == "Image Classification":
     st.title("Knee Image Classification")
 
     # Upload an image
