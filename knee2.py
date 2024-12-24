@@ -194,6 +194,8 @@ elif task == "Patient Data Classification":
 
 
 # Image Classification Page
+# --------------------------------
+# Image Classification Page
 elif task == "Image Classification":
     st.title("Knee Image Classification")
 
@@ -204,50 +206,22 @@ elif task == "Image Classification":
         st.image(image, caption="Uploaded Image", use_container_width=True)
 
         image = image.convert("RGB")
-        img_array = np.array(image.resize((150, 150))) / 255.0  # Resize and normalize the image
+        img_array = np.array(image.resize((150, 150))) / 255.0
         img_array = np.expand_dims(img_array, axis=0)
 
         if st.button("Predict"):
             try:
-                # Make prediction with the CNN model
                 prediction = image_model.predict(img_array)
+                st.write(f"Raw prediction value: {prediction[0]}")
 
-                # Get the confidence for Healthy Knee, and calculate for Osteoporosis
-                healthy_confidence = prediction[0][0]  # Single probability for Healthy Knee
-                osteoporosis_confidence = 1 - healthy_confidence  # Subtract from 1 to get Osteoporosis probability
-
-                # Determine the predicted class based on highest probability
-                if healthy_confidence > osteoporosis_confidence:
-                    prediction_class = "Healthy Knee Likely"
-                    confidence = healthy_confidence
+                if prediction[0] > 0.5:
+                    st.write("Prediction: **Osteoporosis Knee Likely**")
                 else:
-                    prediction_class = "Osteoporosis Knee Likely"
-                    confidence = osteoporosis_confidence
-
-                # Display the predicted class and confidence
-                st.write(f"Prediction: **{prediction_class}** (Confidence: {confidence:.2%})")
-
-                # Optional: Sanity check for non-knee images after prediction
+                    st.write("Prediction: **Healthy Knee Likely**")
+                
+                # Optional: Add a sanity check for non-knee images after prediction
                 if np.max(prediction) > 0.993:  # Example threshold for uncertainty
                     st.warning("This does not appear to be a knee image. Please upload a valid knee image.")
-
-                # Visualization of the prediction
-                result_color = "green" if prediction_class == "Healthy Knee Likely" else "red"
-                st.markdown(
-                    f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class: {prediction_class} (Confidence: {confidence:.2%})</span>",
-                    unsafe_allow_html=True
-                )
-
-                # Pie chart for prediction probabilities
-                classes = ["Healthy Knee Likely", "Osteoporosis Knee Likely"]
-                prediction_probabilities = [healthy_confidence, osteoporosis_confidence]  # Correct probabilities for both classes
-
-                # Plot pie chart
-                fig, ax = plt.subplots()
-                ax.pie(prediction_probabilities, labels=classes, autopct='%1.1f%%', startangle=90, colors=['#4CAF50', '#FF5722'])
-                ax.axis('equal')  # Equal aspect ratio ensures that pie chart is drawn as a circle.
-                st.pyplot(fig)
-
+            
             except Exception as e:
                 st.error(f"Image prediction failed: {e}")
-
