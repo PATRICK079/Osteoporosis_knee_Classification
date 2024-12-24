@@ -242,7 +242,7 @@ elif task == "Patient Data Classification":
 
     
 if task == "Image Classification":
-    st.markdown("Osteoporosis Knee Image Classification")
+    st.markdown("## Osteoporosis Knee Image Classification")
 
     # Upload an image
     uploaded_file = st.file_uploader("Upload an Image of a Knee", type=["jpg", "png"])
