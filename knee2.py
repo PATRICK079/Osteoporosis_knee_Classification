@@ -70,7 +70,7 @@ This project uses the [Osteoporosis Knee X-ray Dataset](https://www.kaggle.com/d
 # Home Page
 # --------------------------------
 if task == "Home":
-    st.markdown("## Welcome to the X-Ray KneeScan Classification App")
+    st.markdown("### Welcome to the X-Ray KneeScan Classification App")
     st.markdown("""
         Use the sidebar to choose a task:
         - **Patient Data Classification**: Predict knee health using patient data.
