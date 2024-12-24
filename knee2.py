@@ -212,9 +212,9 @@ elif task == "Image Classification":
                 # Make prediction with the CNN model
                 prediction = image_model.predict(img_array)
 
-                # Get the class with the highest probability and confidence
-                healthy_confidence = prediction[0][0]  # Probability for Healthy Knee
-                osteoporosis_confidence = prediction[0][1]  # Probability for Osteoporosis Knee
+                # Get the confidence for Healthy Knee, and calculate for Osteoporosis
+                healthy_confidence = prediction[0][0]  # Single probability for Healthy Knee
+                osteoporosis_confidence = 1 - healthy_confidence  # Subtract from 1 to get Osteoporosis probability
 
                 # Determine the predicted class based on highest probability
                 if healthy_confidence > osteoporosis_confidence:
@@ -250,3 +250,4 @@ elif task == "Image Classification":
 
             except Exception as e:
                 st.error(f"Image prediction failed: {e}")
+
