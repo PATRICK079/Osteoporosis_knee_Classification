@@ -150,8 +150,7 @@ elif task == "Patient Data Classification":
     with col21:
         obesity = st.selectbox("Obesity", ["No", "Yes"])
 
-    # Prepare inputs for the model
-    input_data = np.array([[
+   input_data = np.array([[
         1 if joint_pain == "Yes" else 0, 1 if gender == "Male" else 0, age, menopause_age, height, weight,
         1 if smoker == "Yes" else 0, 1 if diabetic == "Yes" else 0, 1 if hypothyroidism == "Yes" else 0,
         number_of_pregnancies, 1 if seizer_disorder == "Yes" else 0, 1 if estrogen_use == "Yes" else 0,
@@ -161,12 +160,12 @@ elif task == "Patient Data Classification":
         1 if obesity == "Yes" else 0
     ]])
 
-   # Predict and display results
-        if st.button("Predict"):
-            try:
-        scaled_input = tabular_scaler.transform(input_data)
-        prediction = tabular_model.predict(scaled_input)
-        raw_prediction = tabular_model.predict_proba(scaled_input)[0]  # Probabilities for both classes
+    # Only show the "Predict" button in the "Patient Data Classification" section
+    if st.button("Predict"):
+        try:
+            scaled_input = tabular_scaler.transform(input_data)
+            prediction = tabular_model.predict(scaled_input)
+            raw_prediction = tabular_model.predict_proba(scaled_input)[0]  # Probabilities for both classes
 
         # Define classes and confidence
         classes = ["Healthy Knee", "Osteoporosis Knee"]
