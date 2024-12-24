@@ -191,7 +191,7 @@ elif task == "Patient Data Classification":
 
         except Exception as e:
             st.error(f"Error: {e}")
-
+            
 
 if task == "Image Classification":
     st.title("Knee Image Classification")
@@ -247,7 +247,7 @@ if task == "Image Classification":
 
                 # Pie chart for prediction probabilities
                 classes = ["Healthy Knee Likely", "Osteoporosis Knee Likely"]
-                prediction_probabilities = [healthy_confidence, osteoporosis_confidence]  # Correct probabilities for both classes
+                prediction_probabilities = [healthy_knee_confidence, osteoporosis_confidence * 100]  # Correct percentages for both classes
 
                 # Plot pie chart
                 fig, ax = plt.subplots()
@@ -257,4 +257,5 @@ if task == "Image Classification":
 
             except Exception as e:
                 st.error(f"Image prediction failed: {e}")
+
 
