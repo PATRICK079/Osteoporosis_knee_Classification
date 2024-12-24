@@ -193,7 +193,7 @@ elif task == "Patient Data Classification":
             st.error(f"Error: {e}")
 
     
-    if task == "Image Classification":
+if task == "Image Classification":
         st.title("Knee Image Classification")
 
     # Upload an image
