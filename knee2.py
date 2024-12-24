@@ -85,6 +85,7 @@ if task == "Home":
    • Ideal for quick and reliable predictions using non-imaging patient data.
 
   **Dataset Dictionary**
+  
    • Joint Pain: Indicates whether the individual experiences joint pain, with options "Yes" or "No."
    
    • Gender: Gender of the individual, with options "Male" or "Female."
