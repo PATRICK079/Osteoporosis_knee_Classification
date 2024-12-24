@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 import matplotlib.pyplot as plt 
+import tensorflow as tf
 
 # Load AWS credentials from .env file (for local testing)
 load_dotenv()
