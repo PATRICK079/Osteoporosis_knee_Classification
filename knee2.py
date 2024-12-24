@@ -76,7 +76,7 @@ if task == "Home":
         - **Patient Data Classification**: Predict knee health using patient data.
         - **Image Classification**: Classify knee health using knee X-ray images.
     """)
-    st.image("https://github.com/PATRICK079/Knee_Classification/blob/main/man-knee-pain-he-puts-260nw-2476578973.jpg.webp", caption="Knee Classification", use_container_width=True)
+    st.image("man-knee-pain-he-puts-260nw-2476578973.jpg.webp", caption="Knee Classification", use_container_width=True)
 
 # --------------------------------
 # Tabular Data Classification Page
