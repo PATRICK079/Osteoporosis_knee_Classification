@@ -27,8 +27,8 @@ def download_model_from_s3(bucket_name, object_name, local_file):
 
 # Download the CNN model from S3
 bucket_name = "edosomacnnmodel"
-object_name = "cnn_model.h5"
-local_file = "cnn_model.h5"
+object_name = "cnn_model.keras"
+local_file = "cnn_model.keras"
 
 download_model_from_s3(bucket_name, object_name, local_file)
 
