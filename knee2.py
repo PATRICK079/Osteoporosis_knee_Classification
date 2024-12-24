@@ -165,33 +165,42 @@ elif task == "Patient Data Classification":
     ]])
 
     # Predict and display results
-    if st.button("Predict"):
-        try:
-            scaled_input = tabular_scaler.transform(input_data)
-            prediction = tabular_model.predict(scaled_input)
-            raw_prediction = tabular_model.predict_proba(scaled_input)[0]  # Probabilities for both classes
+   # Predict and display results
+if st.button("Predict"):
+    try:
+        scaled_input = tabular_scaler.transform(input_data)
+        prediction = tabular_model.predict(scaled_input)
+        raw_prediction = tabular_model.predict_proba(scaled_input)[0]  # Probabilities for both classes
 
-            # Define classes and confidence
-            classes = ["Healthy Knee", "Osteoporosis Knee"]
-            prediction_class = classes[np.argmax(raw_prediction)]
-            confidence = raw_prediction[np.argmax(raw_prediction)]
-            result_color = "green" if prediction_class == "Healthy Knee" else "red"
+        # Define classes and confidence
+        classes = ["Healthy Knee", "Osteoporosis Knee"]
+        prediction_class = classes[np.argmax(raw_prediction)]
+        confidence = raw_prediction[np.argmax(raw_prediction)]
+        result_color = "green" if prediction_class == "Healthy Knee" else "red"
 
-            # Display styled prediction message
-            st.markdown(
-                f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class by Logistic Regression: {prediction_class} (Confidence: {confidence:.2%})</span>",
-                unsafe_allow_html=True,
-            )
+        # Display styled prediction message
+        st.markdown(
+            f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class by Logistic Regression: {prediction_class} (Confidence: {confidence:.2%})</span>",
+            unsafe_allow_html=True,
+        )
 
-            # Plot the probabilities as a bar chart
-            prob_df = pd.DataFrame({
-                "Class": classes,
-                "Probability": raw_prediction
-            })
-            st.bar_chart(data=prob_df.set_index("Class"), use_container_width=True)
-        except Exception as e:
-           st.error(f"Prediction failed: {e}")
-           
+        # Plot the probabilities as a pie chart
+        import matplotlib.pyplot as plt
+
+        fig, ax = plt.subplots()
+        ax.pie(
+            raw_prediction,
+            labels=classes,
+            autopct='%1.1f%%',
+            startangle=90,
+            colors=["#1f77b4", "#ff7f0e"],
+        )
+        ax.axis("equal")  # Equal aspect ratio ensures the pie chart is circular.
+        st.pyplot(fig)
+
+    except Exception as e:
+        st.error(f"Prediction failed: {e}")
+
 
 
 
