@@ -192,7 +192,6 @@ elif task == "Patient Data Classification":
         except Exception as e:
             st.error(f"Error: {e}")
             
-
 if task == "Image Classification":
     st.title("Knee Image Classification")
 
@@ -258,6 +257,7 @@ if task == "Image Classification":
 
             except Exception as e:
                 st.error(f"Image prediction failed: {e}")
+
 
 
 
