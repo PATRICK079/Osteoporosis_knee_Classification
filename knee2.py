@@ -177,7 +177,7 @@ elif task == "Patient Data Classification":
 
             # Display the prediction result
             st.markdown(
-                f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class: {prediction_class} (Confidence: {confidence:.2%})</span>",
+                f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class by Logistic Regression: {prediction_class} (Confidence: {confidence:.2%})</span>",
                 unsafe_allow_html=True
             )
 
