@@ -213,7 +213,7 @@ if task == "Image Classification":
                 prediction = image_model.predict(img_array)
 
                 # If the model is using sigmoid output, it will return a single value (probability for Healthy Knee)
-                #st.write(f"Raw prediction value: {prediction[0]}")
+                st.write(f"Raw prediction value: {prediction[0]}")
 
                 # Extract the healthy knee confidence (convert to float)
                 healthy_confidence = float(prediction[0])  # Convert to float
@@ -239,11 +239,11 @@ if task == "Image Classification":
                     st.warning("This does not appear to be a knee image. Please upload a valid knee image.")
 
                 # Visualization of the prediction
-               # result_color = "green" if prediction_class == "Healthy Knee Likely" else "red"
-                #st.markdown(
-                   # f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class: {prediction_class} (Confidence: {confidence:.2f}%)</span>",
-                   # unsafe_allow_html=True
-                #)
+                result_color = "green" if prediction_class == "Healthy Knee Likely" else "red"
+                st.markdown(
+                   f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class: {prediction_class} (Confidence: {confidence:.2f}%)</span>",
+                   unsafe_allow_html=True
+                )
 
                 # Pie chart for prediction probabilities
                # classes = ["Healthy Knee Likely", "Osteoporosis Knee Likely"]
