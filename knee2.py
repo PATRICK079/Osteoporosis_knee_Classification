@@ -84,7 +84,7 @@ if task == "Home":
 Incorporates offline image augmentation for enhanced accuracy and robustness.
 
 """)
-    st.image("man-knee-pain-he-puts-260nw-2476578973.jpg.jpg", caption="Knee Classification", use_container_width=True)
+    st.image("man-knee-pain-he-puts-260nw-2476578973.jpg.jpg", caption="Osteoporosis Knee Prediction", use_container_width=True)
 
 # --------------------------------
 # Tabular Data Classification Page
