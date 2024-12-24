@@ -37,7 +37,8 @@ tabular_model = joblib.load('Logistic_knee_model.pk1')
 tabular_scaler = joblib.load('Knee_scaler.pk1')
 
 # Load the CNN model from the local file
-image_model = load_model(local_file)
+image_model = tf.keras.models.load_model(local_file)
+
 
 # Sidebar for navigation
 st.sidebar.title("Navigation")
