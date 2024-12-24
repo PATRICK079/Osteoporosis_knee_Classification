@@ -92,7 +92,7 @@ if task == "Home":
    
    • Age: The individual's age in years, ranging from 0 to 120 years.
    
-   • Menopause Age: The age at which menopause occurred (applicable only for females), ranging from 0.0 to 100.0 years.
+   • Menopause Age: The age at which menopause occurred (applicable only for females), ranging from 0.0 to 100.0 years. Male = 0
    
    • Height (meters): The height of the individual in meters, ranging from 0.0 to 3.0 meters.
    
