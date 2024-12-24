@@ -224,7 +224,7 @@ if task == "Image Classification":
                 osteoporosis_confidence = 1 - healthy_confidence  # Subtract from 1 to get Osteoporosis probability
 
                 # Determine the predicted class based on highest confidence
-                if healthy_confidence < osteoporosis_confidence:
+                if healthy_confidence > osteoporosis_confidence:
                     prediction_class = "Healthy Knee Likely"
                     confidence = healthy_confidence
                 else:
