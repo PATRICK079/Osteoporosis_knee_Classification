@@ -194,8 +194,7 @@ elif task == "Patient Data Classification":
 
 
 
-
-# Image Classification Pageif task == "Image Classification":
+if task == "Image Classification":
     st.title("Knee Image Classification")
 
     # Upload an image
@@ -254,5 +253,5 @@ elif task == "Patient Data Classification":
                 st.pyplot(fig)
 
             except Exception as e:
-                st.error(f"Image prediction failed: {e}")
+                st.error(f"Image predi
 
