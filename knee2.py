@@ -194,7 +194,7 @@ elif task == "Patient Data Classification":
 
     
 if task == "Image Classification":
-        st.title("Knee Image Classification")
+    st.title("Knee Image Classification")
 
     # Upload an image
     uploaded_file = st.file_uploader("Upload an Image of a Knee", type=["jpg", "png"])
@@ -247,6 +247,7 @@ if task == "Image Classification":
 
             except Exception as e:
                 st.error(f"Image prediction failed: {e}")
+
 
 
 
