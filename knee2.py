@@ -72,17 +72,13 @@ if task == "Home":
     st.markdown("""
    This app is designed to predict whether a patient has a healthy knee or an osteoporosis-affected knee. Leveraging cutting-edge machine learning techniques, the app offers two prediction modes:
 
-1. Patient Data Analysis:   Input patient data to get a prediction based on a Logistic Regression Model.
-
+1. **Patient Data Analysis**: Input patient data to get a prediction based on a Logistic Regression Model.
    • Accuracy: 96%
-   
    • K-Fold Evaluation Accuracy: 91%
-   
    • Ideal for quick and reliable predictions using non-imaging patient data.
-    
-2. Knee X-ray Image Analysis:    Upload a knee X-ray image to utilize a Convolutional Neural Network (CNN) model trained on the Osteoporosis Knee X-ray Dataset from Kaggle.
-Incorporates offline image augmentation for enhanced accuracy and robustness.
 
+2. **Knee X-ray Image Analysis**: Upload a knee X-ray image to utilize a Convolutional Neural Network (CNN) model trained on the Osteoporosis Knee X-ray Dataset from Kaggle.
+Incorporates offline image augmentation for enhanced accuracy and robustness.
 """)
     st.image("man-knee-pain-he-puts-260nw-2476578973.jpg.jpg", caption="Osteoporosis Knee Prediction", use_container_width=True)
 
@@ -162,7 +158,8 @@ elif task == "Patient Data Classification":
         1 if medical_history == "Yes" else 0, t_score_value, z_score_value, bmi,
         1 if obesity == "Yes" else 0
     ]])
- # Predict and display results
+
+   # Predict and display results
 if st.button("Predict"):
     try:
         scaled_input = tabular_scaler.transform(input_data)
@@ -191,6 +188,7 @@ if st.button("Predict"):
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 # --------------------------------
 # Image Classification Page
 elif task == "Image Classification":
