@@ -189,7 +189,7 @@ if st.button("Predict"):
     except Exception as e:
         st.error(f"Error: {e}")
 
-# --------------------------------
+
 # Image Classification Page
 elif task == "Image Classification":
     st.title("Knee Image Classification")
