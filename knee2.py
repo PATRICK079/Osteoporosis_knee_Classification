@@ -213,9 +213,16 @@ elif task == "Image Classification":
                 prediction = image_model.predict(img_array)
 
                 # Get the class with the highest probability and confidence
-                class_index = np.argmax(prediction)  # 0 for Healthy Knee, 1 for Osteoporosis Knee
-                prediction_class = "Healthy Knee Likely" if class_index == 0 else "Osteoporosis Knee Likely"
-                confidence = prediction[0][class_index]
+                healthy_confidence = prediction[0][0]  # Probability for Healthy Knee
+                osteoporosis_confidence = prediction[0][1]  # Probability for Osteoporosis Knee
+
+                # Determine the predicted class based on highest probability
+                if healthy_confidence > osteoporosis_confidence:
+                    prediction_class = "Healthy Knee Likely"
+                    confidence = healthy_confidence
+                else:
+                    prediction_class = "Osteoporosis Knee Likely"
+                    confidence = osteoporosis_confidence
 
                 # Display the predicted class and confidence
                 st.write(f"Prediction: **{prediction_class}** (Confidence: {confidence:.2%})")
@@ -233,7 +240,7 @@ elif task == "Image Classification":
 
                 # Pie chart for prediction probabilities
                 classes = ["Healthy Knee Likely", "Osteoporosis Knee Likely"]
-                prediction_probabilities = [1 - confidence, confidence]  # Healthy Knee and Osteoporosis Knee probabilities
+                prediction_probabilities = [healthy_confidence, osteoporosis_confidence]  # Correct probabilities for both classes
 
                 # Plot pie chart
                 fig, ax = plt.subplots()
