@@ -163,7 +163,7 @@ elif task == "Patient Data Classification":
         1 if obesity == "Yes" else 0
     ]])
 
-    # Predict and display results
+
    # Predict and display results
 if st.button("Predict"):
     try:
@@ -199,8 +199,6 @@ if st.button("Predict"):
 
     except Exception as e:
         st.error(f"Prediction failed: {e}")
-
-
 
 
 # --------------------------------
