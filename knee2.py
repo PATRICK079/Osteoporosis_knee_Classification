@@ -214,7 +214,7 @@ if task == "Image Classification":
                 prediction = image_model.predict(img_array)
 
                 # If the model is using sigmoid output, it will return a single value (probability for Healthy Knee)
-                st.write(f"Raw prediction value: {prediction[0]}")
+                #st.write(f"Raw prediction value: {prediction[0]}")
 
                 # Extract the healthy knee confidence (convert to float)
                 healthy_confidence = float(prediction[0])  # Convert to float
