@@ -232,7 +232,7 @@ if task == "Image Classification":
                     confidence = osteoporosis_confidence * 100  # To convert to percentage
 
                 # Display the predicted class and confidence
-                st.write(f"Prediction: **{prediction_class}** (Confidence: {confidence:.2f}%)")
+                #st.write(f"Prediction: **{prediction_class}** (Confidence: {confidence:.2f}%)")
 
                 # Optional: Sanity check for non-knee images after prediction
                 if healthy_confidence > 0.993:  # Example threshold for uncertainty
@@ -241,7 +241,7 @@ if task == "Image Classification":
                 # Visualization of the prediction (green for Healthy Knee, red for Osteoporosis)
                 result_color = "green" if prediction_class == "Healthy Knee Likely" else "red"
                 st.markdown(
-                    f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class: {prediction_class} (Confidence: {confidence:.2f}%)</span>",
+                    f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class: {prediction_class}",
                     unsafe_allow_html=True
                 )
 
