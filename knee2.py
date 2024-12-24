@@ -220,16 +220,16 @@ if task == "Image Classification":
                 osteoporosis_confidence = 1 - healthy_confidence  # Probability for Osteoporosis Knee
 
                 # Calculate confidence for Healthy Knee as (1 - osteoporosis_confidence)
-                healthy_knee_confidence = (1 - healthy_confidence) * 100  # To convert to percentage
-                osteoporosis_knee_confidence = osteoporosis_confidence * 100  # To convert to percentage
+                healthy_knee_confidence = osteoporosis_confidence * 100  # To convert to percentage
 
                 # Determine the predicted class based on the confidence value
                 if healthy_confidence < 0.5:  # Threshold of 0.5 for Healthy Knee
                     prediction_class = "Healthy Knee Likely"
                     confidence = healthy_knee_confidence
                 else:
-                    prediction_class = "Osteoporosis Knee Likely"
-                    confidence = osteoporosis_knee_confidence
+                    # Only show "Healthy Knee Likely"
+                    prediction_class = "Healthy Knee Likely"
+                    confidence = healthy_knee_confidence  # Confidence for Healthy Knee
 
                 # Display the predicted class and confidence
                 st.write(f"Prediction: **{prediction_class}** (Confidence: {confidence:.2f}%)")
@@ -238,25 +238,16 @@ if task == "Image Classification":
                 if healthy_confidence > 0.993:  # Example threshold for uncertainty
                     st.warning("This does not appear to be a knee image. Please upload a valid knee image.")
 
-                # Visualization of the prediction
+                # Visualization of the prediction (green color for Healthy Knee Likely)
                 result_color = "green" if prediction_class == "Healthy Knee Likely" else "red"
                 st.markdown(
-                   f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class: {prediction_class} (Confidence: {confidence:.2f}%)</span>",
-                   unsafe_allow_html=True
+                    f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class: {prediction_class} (Confidence: {confidence:.2f}%)</span>",
+                    unsafe_allow_html=True
                 )
-
-                # Pie chart for prediction probabilities
-               # classes = ["Healthy Knee Likely", "Osteoporosis Knee Likely"]
-                #prediction_probabilities = [healthy_knee_confidence, osteoporosis_knee_confidence]  # Correct percentages for both classes
-
-                # Plot pie chart
-               # fig, ax = plt.subplots()
-                #ax.pie(prediction_probabilities, labels=classes, autopct='%1.1f%%', startangle=90, colors=['#4CAF50', '#FF5722'])
-               # ax.axis('equal')  # Equal aspect ratio ensures that pie chart is drawn as a circle.
-                #st.pyplot(fig)
 
             except Exception as e:
                 st.error(f"Image prediction failed: {e}")
+
 
 
 
