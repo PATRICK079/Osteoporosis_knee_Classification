@@ -162,8 +162,8 @@ elif task == "Patient Data Classification":
     ]])
 
    # Predict and display results
-if st.button("Predict"):
-    try:
+        if st.button("Predict"):
+            try:
         scaled_input = tabular_scaler.transform(input_data)
         prediction = tabular_model.predict(scaled_input)
         raw_prediction = tabular_model.predict_proba(scaled_input)[0]  # Probabilities for both classes
