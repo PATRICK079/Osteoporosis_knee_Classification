@@ -252,6 +252,6 @@ if task == "Image Classification":
                 ax.axis('equal')  # Equal aspect ratio ensures that pie chart is drawn as a circle.
                 st.pyplot(fig)
 
+            
             except Exception as e:
-                st.error(f"Image predi
-
+                st.error(f"Image prediction failed: {e}")
