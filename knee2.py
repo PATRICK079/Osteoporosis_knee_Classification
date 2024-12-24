@@ -242,7 +242,7 @@ elif task == "Patient Data Classification":
 
     
 if task == "Image Classification":
-    st.title("Knee Image Classification")
+    st.title("Osteoporosis Knee Image Classification")
 
     # Upload an image
     uploaded_file = st.file_uploader("Upload an Image of a Knee", type=["jpg", "png"])
@@ -261,15 +261,11 @@ if task == "Image Classification":
                 # Make prediction with the CNN model
                 prediction = image_model.predict(img_array)
 
-                # If the model is using sigmoid output, it will return a single value (probability for Healthy Knee)
-                #st.write(f"Raw prediction value: {prediction[0]}")
-
                 # Extract the healthy knee confidence (convert to float)
                 healthy_confidence = float(prediction[0])  # Convert to float
                 osteoporosis_confidence = 1 - healthy_confidence  # Probability for Osteoporosis Knee
 
-                # Calculate confidence for Healthy Knee as (1 - osteoporosis_confidence)
-                healthy_knee_confidence = osteoporosis_confidence * 100  # To convert to percentage
+                healthy_knee_confidence = osteoporosis_confidence * 100  
 
                 # Determine the predicted class based on the raw prediction value
                 if healthy_confidence < 0.5:  # Below 0.5 is Healthy Knee Likely
@@ -279,8 +275,6 @@ if task == "Image Classification":
                     prediction_class = "Osteoporosis Knee Likely"
                     confidence = osteoporosis_confidence * 100  # To convert to percentage
 
-                # Display the predicted class and confidence
-                #st.write(f"Prediction: **{prediction_class}** (Confidence: {confidence:.2f}%)")
 
                 # Optional: Sanity check for non-knee images after prediction
                 if healthy_confidence > 0.993:  # Example threshold for uncertainty
