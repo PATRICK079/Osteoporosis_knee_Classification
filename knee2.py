@@ -192,7 +192,6 @@ elif task == "Patient Data Classification":
         except Exception as e:
             st.error(f"Error: {e}")
 
-
 if task == "Image Classification":
     st.title("Knee Image Classification")
 
@@ -216,12 +215,12 @@ if task == "Image Classification":
                 # If the model is using sigmoid output, it will return a single value (probability for Healthy Knee)
                 st.write(f"Raw prediction value: {prediction[0]}")
 
-                # Extract the healthy knee confidence (make sure to handle the array properly)
+                # Extract the healthy knee confidence (convert to float)
                 healthy_confidence = float(prediction[0])  # Convert to float
                 osteoporosis_confidence = 1 - healthy_confidence  # Probability for Osteoporosis Knee
 
-                # Determine the predicted class based on highest confidence
-                if healthy_confidence > osteoporosis_confidence:
+                # Determine the predicted class based on the confidence value
+                if healthy_confidence > 0.5:  # Threshold of 0.5 to classify as healthy knee
                     prediction_class = "Healthy Knee Likely"
                     confidence = healthy_confidence
                 else:
