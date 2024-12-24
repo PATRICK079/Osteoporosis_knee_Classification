@@ -77,10 +77,8 @@ if task == "Home":
 Input patient data to get a prediction based on a Logistic Regression Model.
 
    • Accuracy: 96%
-
    • K-Fold Evaluation Accuracy: 91%
-   
-    • Ideal for quick and reliable predictions using non-imaging patient data.
+   • Ideal for quick and reliable predictions using non-imaging patient data.
     
 2. Knee X-ray Image Analysis
 
