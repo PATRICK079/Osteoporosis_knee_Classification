@@ -164,7 +164,7 @@ elif task == "Patient Data Classification":
     ]])
 
 
- if st.button("Predict"):
+if st.button("Predict"):
     try:
         scaled_input = tabular_scaler.transform(input_data)
         prediction = tabular_model.predict(scaled_input)
