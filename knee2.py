@@ -191,8 +191,7 @@ elif task == "Patient Data Classification":
 
         except Exception as e:
             st.error(f"Error: {e}")
-            
-if task == "Image Classification":
+            if task == "Image Classification":
     st.title("Knee Image Classification")
 
     # Upload an image
@@ -222,14 +221,13 @@ if task == "Image Classification":
                 # Calculate confidence for Healthy Knee as (1 - osteoporosis_confidence)
                 healthy_knee_confidence = osteoporosis_confidence * 100  # To convert to percentage
 
-                # Determine the predicted class based on the confidence value
-                if healthy_confidence < 0.5:  # Threshold of 0.5 for Healthy Knee
+                # Determine the predicted class based on the raw prediction value
+                if healthy_confidence < 0.5:  # Below 0.5 is Healthy Knee Likely
                     prediction_class = "Healthy Knee Likely"
                     confidence = healthy_knee_confidence
-                else:
-                    # Only show "Healthy Knee Likely"
-                    prediction_class = "Healthy Knee Likely"
-                    confidence = healthy_knee_confidence  # Confidence for Healthy Knee
+                else:  # Above 0.5 is Osteoporosis Knee Likely
+                    prediction_class = "Osteoporosis Knee Likely"
+                    confidence = osteoporosis_confidence * 100  # To convert to percentage
 
                 # Display the predicted class and confidence
                 st.write(f"Prediction: **{prediction_class}** (Confidence: {confidence:.2f}%)")
@@ -238,7 +236,7 @@ if task == "Image Classification":
                 if healthy_confidence > 0.993:  # Example threshold for uncertainty
                     st.warning("This does not appear to be a knee image. Please upload a valid knee image.")
 
-                # Visualization of the prediction (green color for Healthy Knee Likely)
+                # Visualization of the prediction (green for Healthy Knee, red for Osteoporosis)
                 result_color = "green" if prediction_class == "Healthy Knee Likely" else "red"
                 st.markdown(
                     f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class: {prediction_class} (Confidence: {confidence:.2f}%)</span>",
@@ -247,6 +245,7 @@ if task == "Image Classification":
 
             except Exception as e:
                 st.error(f"Image prediction failed: {e}")
+
 
 
 
