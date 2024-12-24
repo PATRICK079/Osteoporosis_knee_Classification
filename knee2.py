@@ -212,12 +212,13 @@ elif task == "Image Classification":
                 # Make prediction with the CNN model
                 prediction = image_model.predict(img_array)
 
-                # Handle prediction: if prediction[0] > 0.5, it's Osteoporosis; else it's Healthy
-                prediction_class = "Osteoporosis Knee Likely" if prediction[0][0] > 0.5 else "Healthy Knee Likely"
-                confidence = prediction[0][0] if prediction[0][0] < 0.5 else 1 - prediction[0][0]
+                # Get the class with the highest probability and confidence
+                class_index = np.argmax(prediction)  # 0 for Healthy Knee, 1 for Osteoporosis Knee
+                prediction_class = "Healthy Knee Likely" if class_index == 0 else "Osteoporosis Knee Likely"
+                confidence = prediction[0][class_index]
 
                 # Display the predicted class and confidence
-                st.write(f"Prediction: **{prediction_class}**")
+                st.write(f"Prediction: **{prediction_class}** (Confidence: {confidence:.2%})")
 
                 # Optional: Sanity check for non-knee images after prediction
                 if np.max(prediction) > 0.993:  # Example threshold for uncertainty
