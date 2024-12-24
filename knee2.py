@@ -49,7 +49,7 @@ task = st.sidebar.radio(
 st.sidebar.title("Sample X-Ray Images")
 st.sidebar.markdown("""
 Use the following links to download sample X-ray images for testing the model:
-- [Healthy Knee Image 1](https://github.com/PATRICK079/Knee_Classification/blob/main/110.jpg)
+- [Healthy Knee Image 1](sample images/110.jpg)
 - [Healthy Knee Image 2](https://github.com/PATRICK079/Knee_Classification/blob/main/11nn.png)
 - [Osteoporosis Knee Image](https://github.com/PATRICK079/Knee_Classification/blob/main/106%20(1).jpeg)
 """)
