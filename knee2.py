@@ -210,7 +210,6 @@ elif task == "Image Classification":
             try:
                 # Make prediction with the CNN model
                 prediction = image_model.predict(img_array)
-                st.write(f"Raw prediction value: {prediction[0]}")
 
                 if prediction[0] > 0.5:
                     st.write("Prediction: **Osteoporosis Knee Likely**")
@@ -235,7 +234,7 @@ elif task == "Image Classification":
                 # Optionally, show a pie chart with prediction probabilities
                 import matplotlib.pyplot as plt
                 fig, ax = plt.subplots()
-                ax.pie(prediction[0], labels=classes, autopct='%1.1f%%', startangle=90, colors=['#4CAF50', '#FF5722'])
+                ax.pie([1 - prediction[0], prediction[0]], labels=classes, autopct='%1.1f%%', startangle=90, colors=['#4CAF50', '#FF5722'])
                 ax.axis('equal')  # Equal aspect ratio ensures that pie chart is drawn as a circle.
                 st.pyplot(fig)
 
