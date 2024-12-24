@@ -196,8 +196,7 @@ elif task == "Patient Data Classification":
 
 
 
-# Image Classification Page
-if task == "Image Classification":
+# Image Classification Pageif task == "Image Classification":
     st.title("Knee Image Classification")
 
     # Upload an image
@@ -217,12 +216,9 @@ if task == "Image Classification":
                 # Make prediction with the CNN model
                 prediction = image_model.predict(img_array)
 
-                # Ensure prediction is a scalar or 1D array
-                st.write(f"Raw prediction value: {prediction[0]}")
-
-                # Extract the confidence from the prediction
+                # Ensure prediction is a 2D array, where [0] represents Healthy Knee and [1] represents Osteoporosis
                 healthy_confidence = prediction[0][0]  # Probability for Healthy Knee
-                osteoporosis_confidence = 1 - healthy_confidence  # Subtract from 1 to get Osteoporosis probability
+                osteoporosis_confidence = prediction[0][1]  # Probability for Osteoporosis Knee
 
                 # Determine the predicted class based on highest confidence
                 if healthy_confidence > osteoporosis_confidence:
