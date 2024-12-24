@@ -148,7 +148,7 @@ elif task == "Patient Data Classification":
     with col3:
         age = st.number_input("Age", min_value=0, max_value=120, step=1, value=25)
     with col4:
-        menopause_age = st.number_input("Menopause Age", min_value=0.0, max_value=100.0, step=0.1, value=0.0)
+        menopause_age = st.number_input("Menopause Age(Female Only)", min_value=0.0, max_value=100.0, step=0.1, value=0.0)
 
     # Second row of inputs
     col5, col6, col7, col8 = st.columns(4)
@@ -170,7 +170,7 @@ elif task == "Patient Data Classification":
     with col11:
         seizer_disorder = st.selectbox("Seizer Disorder", ["No", "Yes"])
     with col12:
-        estrogen_use = st.selectbox("Estrogen Use", ["No", "Yes"])
+        estrogen_use = st.selectbox("Estrogen Use(Female Only)", ["No", "Yes"])
 
     # Fourth row of inputs
     col13, col14, col15, col16 = st.columns(4)
