@@ -191,7 +191,9 @@ elif task == "Patient Data Classification":
 
         except Exception as e:
             st.error(f"Error: {e}")
-            if task == "Image Classification":
+
+    
+    if task == "Image Classification":
     st.title("Knee Image Classification")
 
     # Upload an image
