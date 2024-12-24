@@ -76,6 +76,12 @@ if task == "Home":
         - **Patient Data Classification**: Predict knee health using patient data.
         - **Image Classification**: Classify knee health using knee X-ray images.
     """)
+    st.markdown("## About App")
+    st.markdown("""
+This app predicts if a patient has an **osteoporosis knee** or a **healthy knee** using either:
+- **Patient Data**: A logistic regression model with 96% accuracy and 91% k-fold evaluation accuracy.
+- **Knee X-ray Images**: A CNN model trained on the Osteoporosis Knee X-ray Dataset from Kaggle, incorporating offline image augmentation to identify patterns in future X-ray images.
+""")
     st.image("man-knee-pain-he-puts-260nw-2476578973.jpg.jpg", caption="Knee Classification", use_container_width=True)
 
 # --------------------------------
