@@ -211,27 +211,32 @@ elif task == "Image Classification":
                 # Make prediction with the CNN model
                 prediction = image_model.predict(img_array)
 
-                # Ensure prediction is a scalar value, not an array
-                predicted_class = "Osteoporosis Knee Likely" if prediction[0] > 0.5 else "Healthy Knee Likely"
+                # Determine the predicted class based on the model's output
+                prediction_class = "Osteoporosis Knee Likely" if prediction[0] > 0.5 else "Healthy Knee Likely"
                 confidence = prediction[0] if prediction[0] < 0.5 else 1 - prediction[0]
 
-                st.write(f"Prediction: **{predicted_class}**")
+                # Display the predicted class and confidence
+                st.write(f"Prediction: **{prediction_class}**")
                 
                 # Optional: Add a sanity check for non-knee images after prediction
                 if np.max(prediction) > 0.993:  # Example threshold for uncertainty
                     st.warning("This does not appear to be a knee image. Please upload a valid knee image.")
 
                 # Visualization of the prediction
-                result_color = "green" if predicted_class == "Healthy Knee Likely" else "red"
+                result_color = "green" if prediction_class == "Healthy Knee Likely" else "red"
                 st.markdown(
-                    f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class: {predicted_class} (Confidence: {confidence:.2%})</span>",
+                    f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class: {prediction_class} (Confidence: {confidence:.2%})</span>",
                     unsafe_allow_html=True
                 )
 
                 # Optionally, show a pie chart with prediction probabilities
-                classes = ["Healthy Knee", "Osteoporosis Knee"]
+                # Define classes for pie chart
+                classes = ["Healthy Knee Likely", "Osteoporosis Knee Likely"]
+                prediction_probabilities = [1 - prediction[0], prediction[0]]  # Healthy Knee and Osteoporosis Knee probabilities
+
+                # Plot pie chart
                 fig, ax = plt.subplots()
-                ax.pie([1 - prediction[0], prediction[0]], labels=classes, autopct='%1.1f%%', startangle=90, colors=['#4CAF50', '#FF5722'])
+                ax.pie(prediction_probabilities, labels=classes, autopct='%1.1f%%', startangle=90, colors=['#4CAF50', '#FF5722'])
                 ax.axis('equal')  # Equal aspect ratio ensures that pie chart is drawn as a circle.
                 st.pyplot(fig)
 
