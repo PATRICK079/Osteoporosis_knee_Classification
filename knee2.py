@@ -154,9 +154,9 @@ elif task == "Patient Data Classification":
     # Second row of inputs
     col5, col6, col7, col8 = st.columns(4)
     with col5:
-        height = st.number_input("Height (meters)", min_value=0.0, max_value=3.0, step=0.01, value=1.65)
+        height = st.number_input("Height (meters)", min_value=0.0, max_value=3.0, step=0.5, value=1.65)
     with col6:
-        weight = st.number_input("Weight (kg)", min_value=0.0, max_value=300.0, step=0.1, value=60.0)
+        weight = st.number_input("Weight (kg)", min_value=0.0, max_value=300.0, step=0.5, value=60.0)
     with col7:
         smoker = st.selectbox("Smoker", ["No", "Yes"])
     with col8:
@@ -182,18 +182,18 @@ elif task == "Patient Data Classification":
     with col15:
         family_history_of_osteoporosis = st.selectbox("Family History of Osteoporosis", ["No", "Yes"])
     with col16:
-        maximum_walking_distance = st.number_input("Maximum Walking Distance (km)", min_value=0.0, step=0.1, value=1.0)
+        maximum_walking_distance = st.number_input("Maximum Walking Distance (km)", min_value=0.0, step=0.5, value=1.0)
 
     # Fifth row of inputs
     col17, col18, col19, col20 = st.columns(4)
     with col17:
         medical_history = st.selectbox("Medical History", ["No", "Yes"])
     with col18:
-        t_score_value = st.number_input("T-Score Value", step=0.1, value=-2.0)
+        t_score_value = st.number_input("T-Score Value", step=0.5, value=-2.0)
     with col19:
-        z_score_value = st.number_input("Z-Score Value", step=0.1, value=-3.0)
+        z_score_value = st.number_input("Z-Score Value", step=0.5, value=-3.0)
     with col20:
-        bmi = st.number_input("BMI", min_value=0.0, max_value=50.0, step=0.1, value=22.5)
+        bmi = st.number_input("BMI", min_value=0.0, max_value=50.0, step=0.5, value=22.5)
 
     # Sixth row of inputs
     col21, _, _, _ = st.columns(4)
