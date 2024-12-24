@@ -6,5 +6,6 @@ pandas==2.2.3
 numpy==2.0.2
 boto3
 python-dotenv
+matplotlib
 
 
