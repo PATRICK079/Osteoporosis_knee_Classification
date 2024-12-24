@@ -2,6 +2,7 @@ import os
 import boto3
 import streamlit as st
 import joblib
+import plotly.express as px
 from sklearn.preprocessing import MinMaxScaler
 from tensorflow.keras.models import load_model
 from PIL import Image
@@ -187,9 +188,18 @@ elif task == "Patient Data Classification":
                 "Class": classes,
                 "Probability": raw_prediction
             })
-            st.bar_chart(data=prob_df.set_index("Class"), use_container_width=True)
-        except Exception as e:
-            st.error(f"Prediction failed: {e}")
+            #st.bar_chart(data=prob_df.set_index("Class"), use_container_width=True)
+        #except Exception as e:
+          #  st.error(f"Prediction failed: {e}")
+
+
+# Assuming `prob_df` is already created
+try:
+    fig = px.pie(prob_df, values="Probability", names="Class", title="Prediction Probabilities")
+    st.plotly_chart(fig, use_container_width=True)
+except Exception as e:
+    st.error(f"Prediction failed: {e}")
+
 
 # --------------------------------
 # Image Classification Page
