@@ -73,14 +73,14 @@ if task == "Home":
     st.markdown("""
    This app is designed to predict whether a patient has a healthy knee or an osteoporosis-affected knee. Leveraging cutting-edge machine learning techniques, the app offers two prediction modes:
 
-1. *Patient Data Analysis*: Input patient data to get a prediction based on a Logistic Regression Model.
+1. **Patient Data Analysis**: Input patient data to get a prediction based on a Logistic Regression Model.
    • Accuracy: 96%
    
    • K-Fold Evaluation Accuracy: 91%
    
    • Ideal for quick and reliable predictions using non-imaging patient data.
 
-2. *Knee X-ray Image Analysis*:  Upload a knee X-ray image to utilize a Convolutional Neural Network (CNN) model trained on the Osteoporosis Knee X-ray Dataset from Kaggle.
+2. ***Knee X-ray Image Analysis***:  Upload a knee X-ray image to utilize a Convolutional Neural Network (CNN) model trained on the Osteoporosis Knee X-ray Dataset from Kaggle.
 Incorporates offline image augmentation for enhanced accuracy and robustness.
 """)
     
