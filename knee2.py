@@ -167,10 +167,10 @@ elif task == "Patient Data Classification":
             raw_prediction = tabular_model.predict_proba(scaled_input)[0]  # Probabilities for both classes
 
         # Define classes and confidence
-        classes = ["Healthy Knee", "Osteoporosis Knee"]
-        prediction_class = classes[np.argmax(raw_prediction)]
-        confidence = raw_prediction[np.argmax(raw_prediction)]
-        result_color = "green" if prediction_class == "Healthy Knee" else "red"
+           classes = ["Healthy Knee", "Osteoporosis Knee"]
+           prediction_class = classes[np.argmax(raw_prediction)]
+           confidence = raw_prediction[np.argmax(raw_prediction)]
+           result_color = "green" if prediction_class == "Healthy Knee" else "red"
 
         
 
