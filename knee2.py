@@ -162,8 +162,7 @@ elif task == "Patient Data Classification":
         1 if medical_history == "Yes" else 0, t_score_value, z_score_value, bmi,
         1 if obesity == "Yes" else 0
     ]])
-
-
+ # Predict and display results
 if st.button("Predict"):
     try:
         scaled_input = tabular_scaler.transform(input_data)
@@ -186,20 +185,12 @@ if st.button("Predict"):
         import matplotlib.pyplot as plt
 
         fig, ax = plt.subplots()
-        ax.pie(
-            raw_prediction,
-            labels=classes,
-            autopct='%1.1f%%',
-            startangle=90,
-            colors=["#1f77b4", "#ff7f0e"],
-        )
-        ax.axis("equal")  # Equal aspect ratio ensures the pie chart is circular.
+        ax.pie(raw_prediction, labels=classes, autopct='%1.1f%%', startangle=90, colors=['#4CAF50', '#FF5722'])
+        ax.axis('equal')  # Equal aspect ratio ensures that pie chart is drawn as a circle.
         st.pyplot(fig)
 
     except Exception as e:
-        st.error(f"Prediction failed: {e}")
-
-
+        st.error(f"Error: {e}")
 # --------------------------------
 # Image Classification Page
 elif task == "Image Classification":
