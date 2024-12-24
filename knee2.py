@@ -166,30 +166,27 @@ elif task == "Patient Data Classification":
             prediction = tabular_model.predict(scaled_input)
             raw_prediction = tabular_model.predict_proba(scaled_input)[0]  # Probabilities for both classes
 
-        # Define classes and confidence
-           classes = ["Healthy Knee", "Osteoporosis Knee"]
-           prediction_class = classes[np.argmax(raw_prediction)]
-           confidence = raw_prediction[np.argmax(raw_prediction)]
-           result_color = "green" if prediction_class == "Healthy Knee" else "red"
+            # Define classes and confidence
+            classes = ["Healthy Knee", "Osteoporosis Knee"]
+            prediction_class = classes[np.argmax(raw_prediction)]
+            confidence = raw_prediction[np.argmax(raw_prediction)]
+            result_color = "green" if prediction_class == "Healthy Knee" else "red"
 
-        
+            # Display the prediction result
+            st.markdown(
+                f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class: {prediction_class} (Confidence: {confidence:.2%})</span>",
+                unsafe_allow_html=True
+            )
 
-        # Display styled prediction message
-        st.markdown(
-            f"<span style='color:{result_color}; font-weight:bold;'>Predicted Class by Logistic Regression: {prediction_class} (Confidence: {confidence:.2%})</span>",
-            unsafe_allow_html=True,
-        )
+            # Optionally, show a pie chart with prediction probabilities
+            import matplotlib.pyplot as plt
+            fig, ax = plt.subplots()
+            ax.pie(raw_prediction, labels=classes, autopct='%1.1f%%', startangle=90, colors=['#4CAF50', '#FF5722'])
+            ax.axis('equal')  # Equal aspect ratio ensures that pie chart is drawn as a circle.
+            st.pyplot(fig)
 
-        # Plot the probabilities as a pie chart
-        import matplotlib.pyplot as plt
-
-        fig, ax = plt.subplots()
-        ax.pie(raw_prediction, labels=classes, autopct='%1.1f%%', startangle=90, colors=['#4CAF50', '#FF5722'])
-        ax.axis('equal')  # Equal aspect ratio ensures that pie chart is drawn as a circle.
-        st.pyplot(fig)
-
-    except Exception as e:
-        st.error(f"Error: {e}")
+        except Exception as e:
+            st.error(f"Error: {e}")
 
 
 # Image Classification Page
