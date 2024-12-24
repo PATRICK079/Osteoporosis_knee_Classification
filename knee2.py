@@ -217,22 +217,26 @@ if task == "Image Classification":
                 # Make prediction with the CNN model
                 prediction = image_model.predict(img_array)
 
-                # Display raw prediction value for debugging purposes
+                # Ensure prediction is a scalar or 1D array
                 st.write(f"Raw prediction value: {prediction[0]}")
 
-                # Check if the prediction is above or below the threshold
-                if prediction[0] > 0.5:
-                    prediction_class = "Osteoporosis Knee Likely"
-                    confidence = prediction[0]
-                else:
+                # Extract the confidence from the prediction
+                healthy_confidence = prediction[0][0]  # Probability for Healthy Knee
+                osteoporosis_confidence = 1 - healthy_confidence  # Subtract from 1 to get Osteoporosis probability
+
+                # Determine the predicted class based on highest confidence
+                if healthy_confidence > osteoporosis_confidence:
                     prediction_class = "Healthy Knee Likely"
-                    confidence = 1 - prediction[0]
+                    confidence = healthy_confidence
+                else:
+                    prediction_class = "Osteoporosis Knee Likely"
+                    confidence = osteoporosis_confidence
 
                 # Display the predicted class and confidence
                 st.write(f"Prediction: **{prediction_class}** (Confidence: {confidence:.2%})")
 
                 # Optional: Sanity check for non-knee images after prediction
-                if np.max(prediction) > 0.993:  # Threshold for uncertainty
+                if np.max(prediction) > 0.993:  # Example threshold for uncertainty
                     st.warning("This does not appear to be a knee image. Please upload a valid knee image.")
 
                 # Visualization of the prediction
@@ -244,7 +248,7 @@ if task == "Image Classification":
 
                 # Pie chart for prediction probabilities
                 classes = ["Healthy Knee Likely", "Osteoporosis Knee Likely"]
-                prediction_probabilities = [1 - confidence, confidence]  # Healthy Knee and Osteoporosis Knee probabilities
+                prediction_probabilities = [healthy_confidence, osteoporosis_confidence]  # Correct probabilities for both classes
 
                 # Plot pie chart
                 fig, ax = plt.subplots()
