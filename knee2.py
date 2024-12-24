@@ -195,8 +195,7 @@ elif task == "Patient Data Classification":
 
 
 
-# Image Classification Page
-if task == "Image Classification":
+# Image Classification Pageif task == "Image Classification":
     st.title("Knee Image Classification")
 
     # Upload an image
@@ -216,12 +215,11 @@ if task == "Image Classification":
                 # Make prediction with the CNN model
                 prediction = image_model.predict(img_array)
 
-                # Check the prediction output: assuming it's a 1D array of class probabilities
+                # If the model is using sigmoid output, it will return a single value (probability for Healthy Knee)
                 st.write(f"Raw prediction value: {prediction[0]}")
 
-                # Assuming the model output is [healthy_prob, osteoporosis_prob]
-                healthy_confidence = prediction[0][0]  # Probability for Healthy Knee
-                osteoporosis_confidence = prediction[0][1]  # Probability for Osteoporosis Knee
+                healthy_confidence = prediction[0]  # Probability for Healthy Knee
+                osteoporosis_confidence = 1 - healthy_confidence  # Probability for Osteoporosis Knee
 
                 # Determine the predicted class based on highest confidence
                 if healthy_confidence > osteoporosis_confidence:
@@ -235,7 +233,7 @@ if task == "Image Classification":
                 st.write(f"Prediction: **{prediction_class}** (Confidence: {confidence:.2%})")
 
                 # Optional: Sanity check for non-knee images after prediction
-                if np.max(prediction) > 0.993:  # Example threshold for uncertainty
+                if healthy_confidence > 0.993:  # Example threshold for uncertainty
                     st.warning("This does not appear to be a knee image. Please upload a valid knee image.")
 
                 # Visualization of the prediction
@@ -257,3 +255,4 @@ if task == "Image Classification":
 
             except Exception as e:
                 st.error(f"Image prediction failed: {e}")
+
