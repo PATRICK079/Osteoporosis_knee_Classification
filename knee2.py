@@ -192,6 +192,8 @@ elif task == "Patient Data Classification":
         except Exception as e:
             st.error(f"Error: {e}")
 
+
+
 if task == "Image Classification":
     st.title("Knee Image Classification")
 
@@ -220,7 +222,7 @@ if task == "Image Classification":
                 osteoporosis_confidence = 1 - healthy_confidence  # Probability for Osteoporosis Knee
 
                 # Determine the predicted class based on the confidence value
-                if healthy_confidence > 0.5:  # Threshold of 0.5 to classify as healthy knee
+                if healthy_confidence < 0.5:  # Threshold of 0.5 for Healthy Knee
                     prediction_class = "Healthy Knee Likely"
                     confidence = healthy_confidence
                 else:
