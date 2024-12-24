@@ -45,14 +45,6 @@ task = st.sidebar.radio(
     ("Home", "Patient Data Classification", "Image Classification")
 )
 
-# About App section in sidebar
-st.sidebar.title("About App")
-st.sidebar.markdown("""
-This app predicts if a patient has an **osteoporosis knee** or a **healthy knee** using either:
-- **Patient Data**: A logistic regression model with 96% accuracy and 91% k-fold evaluation accuracy.
-- **Knee X-ray Images**: A CNN model trained on the Osteoporosis Knee X-ray Dataset from Kaggle, incorporating offline image augmentation to identify patterns in future X-ray images.
-""")
-
 st.sidebar.title("Sample X-Ray Images")
 st.sidebar.markdown("""
 Use the following links to download sample X-ray images for testing the model:
