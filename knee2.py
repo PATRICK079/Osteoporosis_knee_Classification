@@ -2,7 +2,6 @@ import os
 import boto3
 import streamlit as st
 import joblib
-import plotly.express as px
 from sklearn.preprocessing import MinMaxScaler
 from tensorflow.keras.models import load_model
 from PIL import Image
