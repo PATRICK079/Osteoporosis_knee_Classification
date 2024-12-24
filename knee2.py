@@ -188,17 +188,11 @@ elif task == "Patient Data Classification":
                 "Class": classes,
                 "Probability": raw_prediction
             })
-            #st.bar_chart(data=prob_df.set_index("Class"), use_container_width=True)
-        #except Exception as e:
-          #  st.error(f"Prediction failed: {e}")
+            st.bar_chart(data=prob_df.set_index("Class"), use_container_width=True)
+        except Exception as e:
+           st.error(f"Prediction failed: {e}")
+           
 
-
-# Assuming `prob_df` is already created
-     try:
-         fig = px.pie(prob_df, values="Probability", names="Class", title="Prediction Probabilities")
-         st.plotly_chart(fig, use_container_width=True)
-    except Exception as e:
-         st.error(f"Prediction failed: {e}")
 
 
 # --------------------------------
