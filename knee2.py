@@ -193,7 +193,6 @@ elif task == "Patient Data Classification":
             st.error(f"Error: {e}")
 
 
-
 if task == "Image Classification":
     st.title("Knee Image Classification")
 
@@ -217,7 +216,8 @@ if task == "Image Classification":
                 # If the model is using sigmoid output, it will return a single value (probability for Healthy Knee)
                 st.write(f"Raw prediction value: {prediction[0]}")
 
-                healthy_confidence = prediction[0]  # Probability for Healthy Knee
+                # Extract the healthy knee confidence (make sure to handle the array properly)
+                healthy_confidence = float(prediction[0])  # Convert to float
                 osteoporosis_confidence = 1 - healthy_confidence  # Probability for Osteoporosis Knee
 
                 # Determine the predicted class based on highest confidence
@@ -252,6 +252,6 @@ if task == "Image Classification":
                 ax.axis('equal')  # Equal aspect ratio ensures that pie chart is drawn as a circle.
                 st.pyplot(fig)
 
-            
             except Exception as e:
                 st.error(f"Image prediction failed: {e}")
+
