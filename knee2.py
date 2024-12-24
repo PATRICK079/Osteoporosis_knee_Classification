@@ -72,7 +72,7 @@ if task == "Home":
     st.markdown("""
    This app is designed to predict whether a patient has a healthy knee or an osteoporosis-affected knee. Leveraging cutting-edge machine learning techniques, the app offers two prediction modes:
 
-1. Patient Data Analysis:           
+1. Patient Data Analysis:   
    Input patient data to get a prediction based on a Logistic Regression Model.
 
    • Accuracy: 96%
