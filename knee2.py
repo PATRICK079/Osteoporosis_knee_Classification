@@ -145,7 +145,7 @@ elif task == "Patient Data Classification":
     with col1:
         joint_pain = st.selectbox("Joint Pain", ["No", "Yes"])
     with col2:
-        gender = st.selectbox("Gender", ["Male", "Female"])
+        gender = st.selectbox("Gender", ["Male", "Female"],index=1)
     with col3:
         age = st.number_input("Age", min_value=0, max_value=120, step=1, value=25)
     with col4:
