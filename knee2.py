@@ -84,54 +84,13 @@ if task == "Home":
    
    • Ideal for quick and reliable predictions using non-imaging patient data.
 
-  **Dataset Dictionary**
-  
-   • Joint Pain: Indicates whether the individual experiences joint pain, with options "Yes" or "No."
-   
-   • Gender: Gender of the individual, with options "Male" or "Female."
-   
-   • Age: The individual's age in years, ranging from 0 to 120 years.
-   
-   • Menopause Age: The age at which menopause occurred (applicable only for females), ranging from 0.0 to 100.0 years. Male = 0
-   
-   • Height (meters): The height of the individual in meters, ranging from 0.0 to 3.0 meters.
-   
-   •  Weight (kg): The weight of the individual in kilograms, ranging from 0.0 to 300.0 kg.
-   
-   • Smoker: Indicates whether the individual smokes, with options "Yes" or "No."
-   
-   • Diabetic: Indicates whether the individual has diabetes, with options "Yes" or "No."
-   
-   • Hypothyroidism: Indicates whether the individual has hypothyroidism, with options "Yes" or "No."
-   
-   • Number of Children: The total number of pregnancies or children the individual has had, ranging from 0 to 20.
-   
-   • Seizure Disorder: Indicates if the individual has a seizure disorder, with options "Yes" or "No."
-   
-   • Estrogen Use: Indicates whether the individual uses estrogen (applicable only for females), with options "Yes" or "No."
-   
-   • History of Fracture: Indicates if the individual has a history of fractures, with options "Yes" or "No."
-   
-   • Dialysis: Indicates whether the individual is undergoing dialysis, with options "Yes" or "No."
-   
-   • Family History of Osteoporosis: Indicates if there is a family history of osteoporosis, with options "Yes" or "No."
-   
-   • Maximum Walking Distance (km): Maximum distance the individual can walk without significant discomfort, ranging from 0.0 to 10.0 km.
-   
-   • Medical History: Indicates whether the individual has any notable medical history, with options "Yes" or "No."
-   
-   • T-Score Value: The T-score value used for bone density analysis, ranging from -20.0 to 10.0.
-   
-   • Z-Score Value: The Z-score value used for bone density analysis, ranging from -20.0 to 10.0.
-   
-   • BMI (Body Mass Index): Body Mass Index of the individual, ranging from 0.0 to 50.0.
-   
-   • Obesity: Indicates whether the individual is considered obese, with options "Yes" or "No."
+
+
+2. **Knee X-ray Image Analysis**:  User  uploads a knee X-ray image, which is processed and analyzed using a Convolutional Neural Network (CNN). This model is trained to detect signs of osteoporosis in the knee. For sample X-ray images for testing, 
+click on this link to down Knee x-ray images  https://github.com/PATRICK079/Osteoporosis_knee_Classification/tree/main/sample%20images
 
 
 
-2. **Knee X-ray Image Analysis**:  Upload a knee X-ray image to utilize a Convolutional Neural Network (CNN) model trained on the Osteoporosis Knee X-ray Dataset from Kaggle.
-Incorporates offline image augmentation for enhanced accuracy and robustness.
 """)
     
 # --------------------------------
