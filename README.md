@@ -2,8 +2,9 @@
 ![man-knee-pain-he-puts-260nw-2476578973 jpg](https://github.com/user-attachments/assets/69d8db39-531e-417d-a6a5-79578d115f0a)
 
 # Introduction
-This project focuses on creating a user-friendly application for assessing factors related to osteoporosis, particularly in individuals who may be at risk of weakened bones and fractures. Osteoporosis is a condition that affects bone density and strength, often leading to mobility issues and other health challenges. The application integrates data collection, analysis, and prediction tools to provide valuable insights into an individual's bone health status.
+This project aims to predict whether a patient has a healthy knee or one affected by osteoporosis. By using advanced machine learning techniques, the application offers two prediction modes to assess knee health.
 
+The focus of this project is to develop a user-friendly tool that helps identify individuals at risk of osteoporosis, a condition that weakens bone density and increases the likelihood of fractures. Osteoporosis often leads to mobility issues and other health complications. The application combines data analysis and prediction models to provide valuable insights into an individual’s bone health, offering a clearer picture of their risk for osteoporosis-related knee problems.
 # Business Statement
 As a machine learning expert in a healthcare organization, one of the orthopedic doctors has approached me to leverage my expertise. He has requested that I develop a machine learning model capable of identifying healthy knees and those affected by osteoporosis using knee X-rays and patient data. The goal is to enhance and expedite his decision-making process. Additionally, the models will be deployed using Streamlit to ensure a user-friendly interface for practical application.
 
