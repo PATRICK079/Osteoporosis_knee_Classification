@@ -86,4 +86,14 @@ Throughout the process of building, training, and deploying the CNN model for kn
  
 4. Adaptability and Problem-Solving: The project required me to think creatively and quickly adapt to overcome technical hurdles. These experiences strengthened my problem-solving skills and deepened my understanding of how to handle real-world challenges in machine learning and model deployment.
 
+# How it works 
+The app utilizes two machine learning models: Logistic Regression for patient data and Convolutional Neural Networks (CNN) for knee X-rays.
 
+1. Patient Data Classification:
+Users provide relevant medical information such as age, gender, lifestyle, and other health indicators. The app then uses a Logistic Regression Model to predict whether the knee is healthy or affected by osteoporosis. For a better understanding of the input data, please refer to the Data Dictionary section above.
+
+2. Image Classification:
+Users can upload a knee X-ray image, which is processed and analyzed using a Convolutional Neural Network (CNN). This model is trained to detect signs of osteoporosis in the knee. For sample X-ray images for testing, check out the Sample Image Folder in this repository.
+
+
+You can check out the Streamlit app here: https://osteoporosiskneeclassification-4aetmz84zt7sfjydtmq4sb.streamlit.app
