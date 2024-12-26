@@ -61,9 +61,6 @@ st.sidebar.markdown("""
 This project uses the [Osteoporosis Knee X-ray Dataset](https://www.kaggle.com/datasets/stevepython/osteoporosis-knee-xray-dataset/code) from Kaggle. Check out the dataset for more details.
 """)
 
-# --------------------------------
-# Home Page
-# --------------------------------
 if task == "Home":
     st.markdown("### Welcome to the Osteoporosis Knee Prediction App")
     st.image("man-knee-pain-he-puts-260nw-2476578973.jpg.jpg", caption="Osteoporosis Knee Prediction", use_container_width=True)
@@ -93,9 +90,6 @@ click on this link to down Knee x-ray images  https://github.com/PATRICK079/Oste
 
 """)
     
-# --------------------------------
-# Tabular Data Classification Page
-# --------------------------------
 elif task == "Patient Data Classification":
     st.title("Patient Data Classification")
 
