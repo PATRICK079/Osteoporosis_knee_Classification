@@ -93,7 +93,7 @@ The app utilizes two machine learning models: Logistic Regression for patient da
 Users provide relevant medical information such as age, gender, lifestyle, and other health indicators. The app then uses a Logistic Regression Model to predict whether the knee is healthy or affected by osteoporosis. For a better understanding of the input data, please refer to the Data Dictionary section above.
 
 2. Image Classification:
-Users can upload a knee X-ray image, which is processed and analyzed using a Convolutional Neural Network (CNN). This model is trained to detect signs of osteoporosis in the knee. For sample X-ray images for testing, check out the Sample Image Folder in this repository.
+Users can upload a knee X-ray image, which is processed and analyzed using a Convolutional Neural Network (CNN). This model is trained to detect signs of osteoporosis in the knee. For sample X-ray images for testing, check out the Sample Image Folder in this repository or click on this link https://github.com/PATRICK079/Osteoporosis_knee_Classification/tree/main/sample%20images
 
 
 You can check out the Streamlit app here: https://osteoporosiskneeclassification-4aetmz84zt7sfjydtmq4sb.streamlit.app
