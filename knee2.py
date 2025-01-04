@@ -45,7 +45,7 @@ image_model = tf.keras.models.load_model(local_file)
 st.sidebar.title("Navigation")
 task = st.sidebar.radio(
     "Choose a Task:",
-    ("Home", "Patient Data Classification", "Image Classification")
+    ("Home", "Image Classification", "Patient Data Classification")
 )
 
 st.sidebar.title("Sample X-Ray Images")
