@@ -193,7 +193,7 @@ elif task == "Patient Data Classification":
             raw_prediction = tabular_model.predict_proba(scaled_input)[0]  # Probabilities for both classes
 
             # Define classes and confidence
-            classes = ["Healthy Knee Likely", "Osteoporosis Knee Likely"]
+            classes = ["Healthy Knee Likely", "Osteoporosis in the knee is likely. Treatment will involve either knee surgery or regular exercise, depending on further evaluation."]
             prediction_class = classes[np.argmax(raw_prediction)]
             confidence = raw_prediction[np.argmax(raw_prediction)]
             result_color = "green" if prediction_class == "Healthy Knee Likely" else "red"
@@ -243,10 +243,10 @@ if task == "Image Classification":
 
                 # Determine the predicted class based on the raw prediction value
                 if healthy_confidence < 0.5:  # Below 0.5 is Healthy Knee Likely
-                    prediction_class = "Healthy Knee Likely"
+                    prediction_class = "Healthy Knee Likely."
                     confidence = healthy_knee_confidence
                 else:  # Above 0.5 is Osteoporosis Knee Likely
-                    prediction_class = "Osteoporosis Knee Likely"
+                    prediction_class = "Osteoporosis in the knee is likely. Treatment will involve either knee surgery or regular exercise, depending on further evaluation."
                     confidence = osteoporosis_confidence * 100  # To convert to percentage
 
 
