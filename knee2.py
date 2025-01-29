@@ -11,8 +11,6 @@ from dotenv import load_dotenv
 import matplotlib.pyplot as plt 
 import tensorflow as tf
 
-# Load AWS credentials from .env file (for local testing)
-load_dotenv()
 
 # Function to download model from S3
 def download_model_from_s3(bucket_name, object_name, local_file):
