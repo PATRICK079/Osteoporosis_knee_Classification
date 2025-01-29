@@ -27,7 +27,7 @@ def download_model_from_s3(bucket_name, object_name, local_file):
             st.success("Model downloaded successfully!")
 
 # Download the CNN model from S3
-bucket_name = "edosomacnnmodel"
+bucket_name = "patrickcnnmodel"
 object_name = "cnn_model.h5"
 local_file = "cnn_model.h5"
 
