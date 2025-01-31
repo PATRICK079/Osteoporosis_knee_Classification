@@ -32,11 +32,6 @@ local_file = "cnn_model.h5"
 download_model_from_s3(bucket_name, object_name, local_file)
 
 # Load the pre-trained models
-#tabular_model = joblib.load('Logistic_knee_model.pk1')
-#tabular_scaler = joblib.load('Knee_scaler.pk1')
-
-# Load the CNN model from the local file
-#image_model = tf.keras.models.load_model(local_file)
 
 @st.cache_resource
 def load_tabular_model():
@@ -48,7 +43,7 @@ def load_tabular_scaler():
 
 @st.cache_resource
 def load_image_model():
-    return tf.keras.models.load_model(local_file)  # Replace 'local_file' with the actual file path
+    return tf.keras.models.load_model(local_file)  
 
 # Load models into cache
 tabular_model = load_tabular_model()
