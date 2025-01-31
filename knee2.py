@@ -202,8 +202,7 @@ elif task == "Patient Data Classification":
                 unsafe_allow_html=True
             )
 
-            # Optionally, show a pie chart with prediction probabilities
-            import matplotlib.pyplot as plt
+          
             fig, ax = plt.subplots()
             ax.pie(raw_prediction, labels=classes, autopct='%1.1f%%', startangle=90, colors=['#4CAF50', '#FF5722'])
             ax.axis('equal')  # Equal aspect ratio ensures that pie chart is drawn as a circle.
