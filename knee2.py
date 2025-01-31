@@ -48,7 +48,7 @@ def load_tabular_scaler():
 
 @st.cache_resource
 def load_image_model():
-    return tf.keras.models.load_model('local_file')  # Replace 'local_file' with the actual file path
+    return tf.keras.models.load_model(local_file)  # Replace 'local_file' with the actual file path
 
 # Load models into cache
 tabular_model = load_tabular_model()
