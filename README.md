@@ -1,99 +1,106 @@
-# Osteoporosis_knee_Classification
+# 🦴 Osteoporosis Knee Classification App
 ![man-knee-pain-he-puts-260nw-2476578973 jpg](https://github.com/user-attachments/assets/69d8db39-531e-417d-a6a5-79578d115f0a)
 
-# Introduction
-This project aims to predict whether a patient has a healthy knee or one affected by osteoporosis. By using advanced machine learning techniques, the application offers two prediction modes to assess knee health.
+# 📌 Overview
+This project is a dual-mode diagnostic tool that classifies knees as either healthy or affected by osteoporosis, using:
 
-The focus of this project is to develop a user-friendly tool that helps identify individuals at risk of osteoporosis, a condition that weakens bone density and increases the likelihood of fractures. Osteoporosis often leads to mobility issues and other health complications. The application combines data analysis and prediction models to provide valuable insights into an individual’s bone health, offering a clearer picture of their risk for osteoporosis-related knee problems.
-# Business Statement
-As a machine learning expert in a healthcare organization, one of the orthopedic doctors has approached me to leverage my expertise. He has requested that I develop a machine learning model capable of identifying healthy knees and those affected by osteoporosis using knee X-rays and patient data. The goal is to enhance and expedite his decision-making process. Additionally, the models will be deployed using Streamlit to ensure a user-friendly interface for practical application.
+• Structured patient data
 
-# Dataset Dictionary
-This app is designed to predict whether a patient has a healthy knee or an osteoporosis-affected knee. Leveraging cutting-edge machine learning techniques, the app offers two prediction modes:
+• Knee X-ray images
 
-1. Patient Data Analysis: Input patient data to get a prediction based on a Logistic Regression Model.
-
-• Joint Pain: Indicates whether the individual experiences joint pain, with options "Yes" or "No."
-
-• Gender: Gender of the individual, with options "Male" or "Female."
-
-• Age: The individual's age in years, ranging from 0 to 120 years.
-
-• Menopause Age: The age at which menopause occurred (applicable only for females), ranging from 0.0 to 100.0 years. Male = 0
-
-• Height (meters): The height of the individual in meters, ranging from 0.0 to 3.0 meters.
-
-• Weight (kg): The weight of the individual in kilograms, ranging from 0.0 to 300.0 kg.
-
-• Smoker: Indicates whether the individual smokes, with options "Yes" or "No."
-
-• Diabetic: Indicates whether the individual has diabetes, with options "Yes" or "No."
-
-• Hypothyroidism: Indicates whether the individual has hypothyroidism, with options "Yes" or "No."
-
-• Number of Children: The total number of pregnancies or children the individual has had, ranging from 0 to 20.
-
-• Seizure Disorder: Indicates if the individual has a seizure disorder, with options "Yes" or "No."
-
-• Estrogen Use: Indicates whether the individual uses estrogen (applicable only for females), with options "Yes" or "No."
-
-• History of Fracture: Indicates if the individual has a history of fractures, with options "Yes" or "No."
-
-• Dialysis: Indicates whether the individual is undergoing dialysis, with options "Yes" or "No."
-
-• Family History of Osteoporosis: Indicates if there is a family history of osteoporosis, with options "Yes" or "No."
-
-• Maximum Walking Distance (km): Maximum distance the individual can walk without significant discomfort, ranging from 0.0 to 10.0 km.
-
-• Medical History: Indicates whether the individual has any notable medical history, with options "Yes" or "No."
-
-• T-Score Value: The T-score value used for bone density analysis, ranging from -20.0 to 10.0.
-
-• Z-Score Value: The Z-score value used for bone density analysis, ranging from -20.0 to 10.0.
-
-• BMI (Body Mass Index): Body Mass Index of the individual, ranging from 0.0 to 50.0.
-
-• Obesity: Indicates whether the individual is considered obese, with options "Yes" or "No."
-
-2. Knee X-ray Image Analysis: Upload a knee X-ray image to utilize a Convolutional Neural Network (CNN) model trained on the Osteoporosis Knee X-ray Dataset from Kaggle. Incorporates offline image augmentation for enhanced accuracy and robustness.
-
-# Tools used 
-1. Tensorflow
-2. AWS S3 bucket
-3. Git
-4. Saturn cloud
-5. Streamlit
-6. python
-7. scikit-learn
+The application combines traditional machine learning and deep learning techniques, wrapped in a user-friendly Streamlit interface. It was developed to support orthopedic professionals in accelerating diagnosis and making more informed decisions.
 
 
-# Problems encountered in this project and solutions
+# 💡 Business Context
+An orthopedic doctor approached me to develop a predictive tool to assist in early detection of osteoporosis in knees—using both patient medical data and X-ray scans. This model was designed to be fast, interpretable, and practical for deployment in a clinical setting.
 
-1. Insufficient Dataset for CNN Model: The initial dataset of only 372 images was too small for training a CNN model effectively. To address this, I performed offline image augmentation, generating new transformed images and expanding the dataset.
+# ⚙️ How It Works
+Users can choose between two classification modes:
 
-2. Memory Issues During Image Augmentation: Saving the augmented images overwhelmed the memory on my local machine. To resolve this, I transitioned to Saturn Cloud, which provided the necessary resources for handling the dataset efficiently.
+1. Patient Data Classification
+Inputs: Demographic, lifestyle, and medical information
+Model: Logistic Regression
+Output: Binary classification — Healthy or Osteoporotic
 
-3. GitHub Upload Limit for Model: The CNN model file was about 290 MB, which exceeded GitHub's 100 MB upload limit. I overcame this by uploading the model to an AWS S3 bucket, enabling me to deploy it via Streamlit.
+2. Image-Based Classification
+Input: Knee X-ray image (JPEG/PNG)
+Model: Convolutional Neural Network (CNN)
+Output: Binary classification — Healthy or Osteoporotic
 
-# Key Learnings from the Project 
-Throughout the process of building, training, and deploying the CNN model for knee image classification, I gained valuable insights and practical experience in several key areas:
+📍 Try the app here:
+👉 [Live Demo](https://osteoporosiskneeclassification-4aetmz84zt7sfjydtmq4sb.streamlit.app)
 
-1. Data Augmentation Techniques: I learned the importance of data augmentation when working with small datasets. By generating additional images through transformations, I was able to effectively increase the dataset size, which improved the performance and generalization of the model.
-   
-2. Cloud Computing for Resource Management: Moving my project to Saturn Cloud taught me how to leverage cloud computing resources to overcome local machine limitations. This experience showed me the value of using cloud platforms for handling large datasets and running resource-intensive processes without running into memory constraints.
-   
-3. Model Deployment Challenges: I encountered practical challenges related to file size limitations when deploying models. By using AWS S3 for storing large model files, I learned how to work around restrictions like GitHub's file size limit and gained experience in integrating cloud storage with deployment tools like Streamlit.
- 
-4. Adaptability and Problem-Solving: The project required me to think creatively and quickly adapt to overcome technical hurdles. These experiences strengthened my problem-solving skills and deepened my understanding of how to handle real-world challenges in machine learning and model deployment.
-
-# How it works 
-The app utilizes two machine learning models: Logistic Regression for patient data and Convolutional Neural Networks (CNN) for knee X-rays.
-
-1. Patient Data Classification:
-Users provide relevant medical information such as age, gender, lifestyle, and other health indicators. The app then uses a Logistic Regression Model to predict whether the knee is healthy or affected by osteoporosis. For a better understanding of the input data, please refer to the Data Dictionary section above.
-
-2. Image Classification:
-Users can upload a knee X-ray image, which is processed and analyzed using a Convolutional Neural Network (CNN). This model is trained to detect signs of osteoporosis in the knee. For sample X-ray images for testing, check out the Sample Image Folder in this repository or click on this link https://github.com/PATRICK079/Osteoporosis_knee_Classification/tree/main/sample%20images
+📎 Sample X-ray images:
+👉 [GitHub Sample Folder](https://github.com/PATRICK079/Osteoporosis_knee_Classification/tree/main/sample%20images)
 
 
-You can check out the Streamlit app here: https://osteoporosiskneeclassification-4aetmz84zt7sfjydtmq4sb.streamlit.app
+# 🛠️ Technologies Used
+
+•  Python
+
+•  scikit-learn – for logistic regression
+
+•  TensorFlow / Keras – for CNN image classification
+
+•  Streamlit – app interface and deployment
+
+•  Saturn Cloud – handled memory-heavy image augmentation
+
+•  AWS S3 – hosted large CNN model files (>100MB)
+
+## 🧠 Model Architecture
+
+- **Custom CNN** with:
+  - Convolutional layers
+  - MaxPooling layers
+  - Dense layers with dropout for regularization
+- **Loss Function:** Binary Cross-Entropy
+- **Optimizer:** Adam
+- **Activation Functions:** ReLU and Sigmoid
+
+# ✅ Highlights
+
+| Challenge                             | Solution                                                |
+| ------------------------------------- | ------------------------------------------------------- |
+| Small image dataset (372 images)      | Applied offline image augmentation to expand dataset    |
+| Local memory issues during processing | Switched to Saturn Cloud for scalable resources         |
+| GitHub file size limit (100MB)        | Deployed model via AWS S3 bucket integration            |
+| Limited diagnostic flexibility        | Enabled both data-based and image-based diagnosis modes |
+
+# 🧠 Key Takeaways
+• **Full-cycle ML deployment:** From preprocessing and model training to cloud deployment.
+
+• **Dual-modal ML app:** Blended structured data and image-based learning.
+
+• **Real-world application:** Built to solve an actual medical need from a professional request.
+
+• **Cloud integration experience:** Overcame hardware and GitHub limitations with cloud platforms.
+
+# 📂 Project Structure
+
+📦 Osteoporosis_knee_Classification/
+
+├── app.py                  
+├── logistic_model.pkl     
+├── cnn_model.h5            
+├── sample images/         
+└── README.md               
+
+# 👨‍⚕️ Use Case
+This tool can support orthopedic clinics, general practitioners, and research teams by offering:
+
+• Quick assessments based on patient data
+
+• Visual X-ray classification when data is unavailable
+
+• An accessible demo to validate results in real-time
+
+# 📬 Contact
+Patrick Edosoma
+
+Machine Learning Engineer
+
+[Linkedlin](https://www.linkedin.com/in/patrickedosoma/)
+
+# ⭐️ Star This Repo
+If you found this project helpful, please star ⭐️ it to show support!
