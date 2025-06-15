@@ -33,6 +33,9 @@ Output: Binary classification — Healthy or Osteoporotic
 📎 Sample X-ray images:
 👉 [GitHub Sample Folder](https://github.com/PATRICK079/Osteoporosis_knee_Classification/tree/main/sample%20images)
 
+📎 Video Demo of the App:
+   [Video Demo](https://www.loom.com/share/5dfac25458be4e50b9955049390f6316?sid=2211fdc1-95d6-4dbe-9a0b-c63e847c9278)
+
 
 # 🛠️ Technologies Used
 
